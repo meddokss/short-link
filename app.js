@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 
 import router from "./routes/auth.routes";
 import link from "./routes/link.routes";
+import redirect from "./routes/redirect.routes";
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json({ extended: true }));
 
 app.use("/api/auth", router);
 app.use("/api/link", link);
+app.use("/t/", redirect);
 
 const PORT = config.get("port") || 5000;
 
